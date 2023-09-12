@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Registration Form | CodeLab</title>
+      <link rel="stylesheet" href="../static/main.css">
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title">
+            Registration Form
+         </div>
+         <form action="" method="POST">
+            {% csrf_token %}
+            <div class="field">
+                <input class="name" type="text" name="first_name" required>
+                <label>First Name</label>
+            </div>
+            <div class="field">
+                <input class="name" type="text" name="last_name" required>
+                <label>Last Name</label>
+            </div>
+                
+            <div class="field">
+               <input type="text" name="email" required>
+               <label>Email Address</label>
+            </div>
+            <div class="field">
+               <input type="password" name="password1" required>
+               <label>Password</label></div>
+            <div class="field">
+            <input type="password" name="password2" required>
+               <label>Confirm Password</label></div>
+            
+            <div class="field">
+            <button type="submit" class="sign_in">Register</button>
+            </div>
+            
+               
+            
+
+            <div class="signup-link">
+               Not a member? <a href="{% url 'login' %}">Log In</a>
+               {% if error %}
+               <p style="color: red;">{{ error }}</p>
+               {% endif %}
+            </div>
+         </form>
+      </div>
+   </body>
+</html>
